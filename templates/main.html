@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block at %}
+@commons
+{% endblock %}
+
+{% block body %}
+
+	{% for entry in entries %}
+				
+			<font size=-1>
+				<a href='{{ entry.entry_link }}'>{{ entry.entry_link }}</a> 
+				<br>
+					{{ entry.entry_blurb|safe }} 
+			</font>
+					
+			<font size=1 color='#ECD672'> 
+			<br> 
+				{{ entry.entry_date|safe }} 
+			<a href="/{{ entry.entry_username }}">@{{entry.entry_username}}</a>
+			</font>
+			
+			<p>
+			
+		{% else %}
+				
+			<li><em>Unbelieable. No entries here so far</em>
+		
+	{% endfor %}
+	</ul>
+<p>
+( 1 | 2 | 3 ... 10 | 11 ... ) Next
+{% endblock %}

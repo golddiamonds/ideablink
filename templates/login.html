@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block at %}
+@login
+{% endblock %}
+
+
+
+{% block body %}
+
+<h3>Login:</h3>
+
+{% if error %}
+
+<p class=error>
+<strong>Error:</strong> 
+
+{{ error }} 
+
+{% endif %}
+
+
+<form action="{{ url_for('login') }}" method=POST>
+
+<dl>
+
+<dt>username:
+
+<dd><input type=text size=30 name=username>
+
+<dt>password
+
+<dd><input type=password size=30 name=password>
+
+<dd><input type=submit value=login>
+
+</dl>
+
+</form>
+
+No account? <a href="/register">Register</a>.
+{% endblock %}

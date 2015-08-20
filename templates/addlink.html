@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block at %}
+@addlink
+{% endblock %}
+{% block body %}
+<br><br>
+
+
+<form action="{{ url_for('add_entry') }}" method=POST>
+	
+logged in as: {{username}}
+	
+<dl>
+		
+<dt>link:
+		<dd><input type=text size=30 name=entrylink>
+		
+<dt>blurb:
+		<dd><textarea name=entryblurb rows=3 cols=30></textarea>
+		
+<dd><input type=submit value=share>
+	
+</dl>
+</form>
+<ul class=entries>
+</td></tr></table>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block at %}
+@register
+{% endblock %}
+
+{% block body %}
+
+<br>
+{{ error }}
+<form action="{{ url_for('add_user') }}" method=POST>
+	
+<dl>
+		<dt>username:
+		
+<dd><input type=text size=30 name=username>
+		<dt>email:
+		
+<dd><input type=text size=30 name=email>
+		<dt>password
+		
+<dd><input type=password size=30 name=password>
+		<dd><input type=submit value=register>
+	
+</dl>
+
+</form>
+
+Already have an account? <a href="/login">Login</a>.
+
+{% endblock %}

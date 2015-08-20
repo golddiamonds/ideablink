@@ -1,0 +1,77 @@
+<link rel=stylesheet type=text/css href="/static/style.css">
+
+
+{% block body %}
+
+<div class="top">
+
+<a href="/login">login</a> | <a href="/post">post</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type=text placeholder="search"> &nbsp; &nbsp;
+</div>
+
+<div class="topunder">
+
+</div>
+
+<div class="main">
+<center>
+
+<table width=800>
+<tr>
+<td valign=top>
+<h1>hash<font color = #32CD32>squid</font></h1>
+
+@{{user}}<br>
+
+<font size=-1>&nbsp; &nbsp; &nbsp;<a href="/follow/{{user}}">follow</a></font>
+
+<blockquote>
+
+<a href="/{{user}}/favorites">favorites</a><br>
+
+<a href="/following/{{user}}"> following (0)</a><br>
+
+<a href="/followers/{{user}}">followers (0)</a><br>
+
+</blockquote>
+
+</td>
+
+<td valign=top>
+
+<table width=400>
+
+<tr>
+
+<td valign=top>
+	
+{% for entry in entries %}
+		
+<font size=-1>
+<a href='{{ entry.entry_link }}'>{{ entry.entry_link }}</a> <br>
+{{ entry.entry_blurb|safe }} </font>
+		
+<font size=1 color='#ECD672'> <br> {{ entry.entry_date|safe }} 
+{% if session.logged_in %}
+{% if entry.entry_favorite == 0 %}
+ | <a href="/favorite/{{entry.entry_id}}">add fav</a>
+{% else %}
+ | <a href="/remfavorite/{{entry.entry_id}}">rem fav</a>
+{% endif %}
+{% else %}
+{% endif %}
+</font>
+<p>
+	
+{% else %}
+		
+<li><em>Unbelieable. No entries here so far</em>
+	
+{% endfor %}
+	
+</ul>
+
+</td></tr></table>
+</td></tr></table>
+
+
+{% endblock %}

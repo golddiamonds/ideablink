@@ -1,0 +1,1 @@
+ALTER TABLE ideablink.main ADD COLUMN favorite int default 0;
